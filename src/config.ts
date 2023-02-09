@@ -1,6 +1,6 @@
 export default {
   // 填入你的OPENAI_API_KEY
-  OPENAI_API_KEY: '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',
+  OPENAI_API_KEY: '',
   // 设置获取消息的重试次数
   retryTimes: 3,
   // 在群组中设置唤醒微信机器人的关键词
@@ -18,7 +18,7 @@ export default {
   // 是否在私聊中按照回复的格式进行回复
   privateReplyMode: false,
   // 黑名单内@不回复
-  groupBlackList: ['前端人技术交流3群'],
+  groupBlackList: [],
   // 超级管理员没有黑名单限制
-  superAdmin: ['大号'],
+  superAdmin: [],
 };
