@@ -2,5 +2,4 @@
 */log
 .env
 *.memory-card.json
-lib
-src/config.ts
+*src/config.ts
