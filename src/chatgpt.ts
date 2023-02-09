@@ -49,7 +49,12 @@ export async function replyMessage(contact, content) {
       (contact.topic && contact?.topic() && config.groupReplyMode) ||
       (!contact.topic && config.privateReplyMode)
     ) {
-      const result = content + '\n-----------\n' + message;
+      let result = '';
+      if (message.includes('<') || message.includes('>')) {
+        await message.replace('<', '《');
+        await message.replace('>', '》');
+      }
+      result = content + '\n-----------\n' + message;
       await contact.say(result);
       return;
     } else {

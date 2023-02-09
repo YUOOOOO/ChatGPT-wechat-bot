@@ -20,6 +20,30 @@ async function onMessage(msg) {
   if (msg.self()) {
     return;
   }
+  if (config.groupBlackList.includes(room ? await room.topic() : alias)) {
+    console.log(
+      `Group name: ${
+        room ? await room.topic() : alias
+      } talker: ${await contact.name()} content: ${content}`
+    );
+    if (config.superAdmin.includes(await alias)) {
+      const pattern = RegExp(
+        `^@${receiver.name()}\\s+${config.groupKey}[\\s]*`
+      );
+      if (await msg.mentionSelf()) {
+        if (pattern.test(content)) {
+          const groupContent = content.replace(pattern, '');
+          replyMessage(room, groupContent);
+          return;
+        } else {
+          console.log(
+            'Content is not within the scope of the customizition format'
+          );
+        }
+      }
+    }
+    return;
+  }
 
   if (room && isText) {
     const topic = await room.topic();
