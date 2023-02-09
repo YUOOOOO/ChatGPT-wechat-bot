@@ -17,4 +17,8 @@ export default {
   groupReplyMode: true,
   // 是否在私聊中按照回复的格式进行回复
   privateReplyMode: false,
+  // 自动回复群聊中白名单指定的人的消息,不需要@
+  groupWhitePeopleList: [],
+  // 指定群聊自动回复，不需要@
+  groupAutoReplyList:[]
 };
